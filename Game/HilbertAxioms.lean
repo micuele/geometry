@@ -23,7 +23,7 @@ instance {A : Type*} {B : Type*} [SSet A B] : HasEquiv A :=
 X ≈ Y ↔ ∀ t, t ∈ X ↔ t ∈ Y := Iff.rfl
 
 -- A "subset" can always be considered as an actual subset, in Lean this is `Set B`
-instance {A : Type*} {B : Type*} [SSet A B] : CoeHead A (Set B) := ⟨λ x p ↦ p ∈ x⟩
+instance {A : Type*} {B : Type*} [SSet A B] : CoeHead A (Set B) := ⟨λ x ↦ {p |  p ∈ x}⟩
 
 --@[simp] lemma mem_pts  {A : Type*} {B : Type*} [SSet A B] (a : A) (P : B) :
 --P ∈ (a : Set B) ↔ P ∈ a := Iff.rfl
